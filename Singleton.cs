@@ -1,5 +1,8 @@
 using UnityEngine;
-
+/// <summary>
+/// This Script was written by huseong Lee.
+/// with MIT License
+/// </summary>
 public abstract class Singleton<T> : MonoBehaviour where T : class {
     private static T _instance;
     public static T instance {
