@@ -31,10 +31,10 @@ public class ObjectPoolingManager : Singleton<ObjectPoolingManager> {
         _gameObjectDic.Add(type, gm);
         Queue<GameObject> queue = new Queue<GameObject>();
         for (int i=0; i<poolCount; i++) {
-            GameObject gm = Instantiate(gm);
-            gm.transform.parent = parents;
-            gm.SetActive(false);
-            gm.name = type.ToString() + '_' + i.ToString();
+            GameObject tempGm = Instantiate(gm);
+            tempGm.transform.parent = parents;
+            tempGm.SetActive(false);
+            tempGm.name = type.ToString() + '_' + i.ToString();
             queue.Enqueue(gm);
         }
         _pool.Add(type, queue);
@@ -46,7 +46,7 @@ public class ObjectPoolingManager : Singleton<ObjectPoolingManager> {
         return gm;
     }
 
-    public void setObject(PoolObject poolObject, GameObject gm) {
+    public void setObject(PoolingObject type, GameObject gm) {
         if(!_pool.ContainsKey(type)) {
             Debug.LogError(type.ToString() + "is not Inited");
             return;
