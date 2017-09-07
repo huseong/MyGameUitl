@@ -16,7 +16,7 @@ public class ObjectPoolingManager : Singleton<ObjectPoolingManager> {
     private Dictionary<PoolingObject, GameObject> _gameObjectDic;
 
     protected void Awake () {
-        if (!checkSingleton()) {
+        if (!isSingleton()) {
             return;
         }
         _pool = new Dictionary<PoolingObject, Queue<GameObject>>();
@@ -28,6 +28,7 @@ public class ObjectPoolingManager : Singleton<ObjectPoolingManager> {
             Debug.LogError(type.ToString() + 'is already Inited');
             return;
         }
+        _gameObjectDic.Add(type, gm);
         Queue<GameObject> queue = new Queue<GameObject>();
         for (int i=0; i<poolCount; i++) {
             GameObject gm = Instantiate(gm);
