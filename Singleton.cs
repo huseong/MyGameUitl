@@ -24,7 +24,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : class {
             return false;
         }
         _instance = this as T;
-        DontDestoryOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
         return true;
     }
 }
