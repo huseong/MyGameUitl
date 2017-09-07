@@ -25,7 +25,7 @@ public class ObjectPoolingManager : Singleton<ObjectPoolingManager> {
 
     public void initObjects(PoolingObject type, GameObject gm, Transform parents, int poolCount) {
         if(_pool.ContainsKey(type)) {
-            Debug.LogError(type.ToString() + 'is already Inited');
+            Debug.LogError(type.ToString() + "is already Inited");
             return;
         }
         _gameObjectDic.Add(type, gm);
@@ -48,7 +48,7 @@ public class ObjectPoolingManager : Singleton<ObjectPoolingManager> {
 
     public void setObject(PoolObject poolObject, GameObject gm) {
         if(!_pool.ContainsKey(type)) {
-            Debug.LogError(type.ToString() + 'is not Inited');
+            Debug.LogError(type.ToString() + "is not Inited");
             return;
         }
         gm.SetActive(false);
