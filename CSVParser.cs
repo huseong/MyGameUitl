@@ -1,6 +1,8 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+
 /// <summary>
 /// This Script was written by huseong Lee.
 /// with MIT License
@@ -24,6 +26,7 @@ namespace GameUtilSD {
         /// <summary>
         /// return dictionary that represent the asset in the path.
         /// You can use this such as translation.
+        /// if you want to use \n use your text %n.
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
@@ -38,6 +41,14 @@ namespace GameUtilSD {
                 } else if (hashMap.ContainsKey(temp[0])) {
                     Debug.Log("This Key is already exist. Key : " + temp[0]);
                     continue;
+                }
+                string[] temp1 = temp[1].Split(new string[] { "%n" }, StringSplitOptions.None);
+                if (temp1.Length > 1) {
+                    temp[1] = "";
+                    for (int j = 0; j < temp1.Length; j++) {
+                        Debug.Log(temp1[j]);
+                        temp[1] += temp1[j] + '\n';
+                    }
                 }
                 hashMap.Add(temp[0], temp[1]);
             }
@@ -109,5 +120,4 @@ namespace GameUtilSD {
         }
     }
 }
-
 
