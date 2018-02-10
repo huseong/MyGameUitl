@@ -36,7 +36,7 @@ namespace GameUtilSD
                 tempGm.transform.parent = parents;
                 tempGm.SetActive(false);
                 tempGm.name = type.ToString() + '_' + i.ToString();
-                queue.Enqueue(gm);
+                queue.Enqueue(tempGm);
             }
             _pool.Add(type, queue);
         }
